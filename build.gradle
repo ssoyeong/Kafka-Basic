@@ -28,6 +28,14 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.kafka:spring-kafka-test'
+
+	implementation ("io.debezium:debezium-api:1.4.1.Final")
+	implementation ("io.debezium:debezium-embedded:1.4.1.Final") {
+		exclude group: 'org.slf4j', module: 'slf4j-log4j12'
+	}
+	implementation ("io.debezium:debezium-connector-mysql:1.4.1.Final")
+
+	implementation 'org.json:json:20190722'
 }
 
 tasks.named('test') {
